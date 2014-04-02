@@ -38,8 +38,8 @@ or Download the HIPCHAT Alerting Extension zip from http://appsphere.appdynamics
 8. Installing Custom Actions
 
       To create a Custom Action, first refer to the the following topic (requires login):
-      * 3.6 - [Creating custom action](http://docs.appdynamics.com/display/PRO13S/Custom+Actions)
-      * 3.7 - [Build an Alerting Extension](http://docs.appdynamics.com/display/PRO13S/Build+an+Alerting+Extension)
+      * [Creating custom action](http://docs.appdynamics.com/display/PRO13S/Custom+Actions)
+      * [Build an Alerting Extension](http://docs.appdynamics.com/display/PRO13S/Build+an+Alerting+Extension)
 
 Now you are ready to use this extension as a custom action. In the AppDynamics UI, go to Alert & Respond -> Actions. Click Create Action. Select Custom Action and click OK. In the drop-down menu you can find the action called 'hipchat-alert'.
 

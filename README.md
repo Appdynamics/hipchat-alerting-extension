@@ -23,17 +23,23 @@ or Download the HIPCHAT Alerting Extension zip from http://appsphere.appdynamics
 5. Specify the values the properties in config.properties
 6. In folder/directory = <controller-install-path>\custom\actions add custom.xml, add below action in xml file(modify if the file already exists, and merge the below action)
 
- -<custom-actions>
- -	<action>
- -		<type>hipchat-alert</type>
- -      <!-- For windows *.bat -->
- -		<executable>hipchat-alert.bat</executable>
- -		<!-- For Linux/Unix *.sh -->
- -		<!-- executable>hipchat-alert.sh</executable -->
- -	</action>
- -</custom-actions>
+ ``<custom-actions>
+ 	<action>
+		<type>hipchat-alert</type>
+       <!-- For windows *.bat -->
+ 		<executable>hipchat-alert.bat</executable>
+ 		<!-- For Linux/Unix *.sh -->
+ 		<!-- executable>hipchat-alert.sh</executable -->
+ 	</action>
+ </custom-actions>``
 
 7. UnComment the appropriate executable tag based on windows or linus/unix machine.
+
+8. Installing Custom Actions
+
+      To create a Custom Action, first refer to the the following topic (requires login):
+      * 3.6 - [Creating custom action](http://docs.appdynamics.com/display/PRO13S/Custom+Actions)
+      * 3.7 - [Build an Alerting Extension](http://docs.appdynamics.com/display/PRO13S/Build+an+Alerting+Extension)
 
 Now you are ready to use this extension as a custom action. In the AppDynamics UI, go to Alert & Respond -> Actions. Click Create Action. Select Custom Action and click OK. In the drop-down menu you can find the action called 'hipchat-alert'.
 

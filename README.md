@@ -17,11 +17,11 @@ The HipChat alerting extension enables AppDynamics to post custom notifications 
 
 1. Run "mvn clean install"
 2. Download and unzip the file 'target/hipchat-alert.zip'
-or Download the HIPCHAT Alerting Extension zip from http://appsphere.appdynamics.com
+or Download the HIPCHAT Alerting Extension zip from  http://appsphere.appdynamics.com/t5/AppDynamics-eXchange/HipChat-Alerting-Extension/idi-p/7640
 3. Create a folder/directory as <controller-install-path>custom\actions\hipchat-alert
 4. Unzip the contents from zip (from step 2) in the above directory. You will see a prompt if you already have a custom.xml file in the /custom/actions/ directory. Don't let the unzip process overwrite it. Instead, merge the contents.
 5. Specify the values the properties in config.properties
-6. In folder/directory = <controller-install-path>\custom\actions add custom.xml, add below action in xml file(modify if the file already exists, and merge the below action)
+6. In directory = <controller-install-dir>\custom\actions add custom.xml, add below action in xml file(modify if the file already exists, and merge the below action)
 
  ``<custom-actions>
  	<action>
@@ -35,9 +35,9 @@ or Download the HIPCHAT Alerting Extension zip from http://appsphere.appdynamics
 
 7. UnComment the appropriate executable tag based on windows or linus/unix machine.
 
-8. Installing Custom Actions
+8. Installing Custom Actions:
 
-      To create a Custom Action, first refer to the the following topic (requires login):
+      To create a Custom Action, first refer to the the following topics (requires login):
       * [Creating custom action](http://docs.appdynamics.com/display/PRO13S/Custom+Actions)
       * [Build an Alerting Extension](http://docs.appdynamics.com/display/PRO13S/Build+an+Alerting+Extension)
 
@@ -45,7 +45,7 @@ Now you are ready to use this extension as a custom action. In the AppDynamics U
 
 ##Contributing
 
-Always feel free to fork and contribute any changes directly here on GitHub.
+Find out more in the [AppSphere](http://appsphere.appdynamics.com/t5/AppDynamics-eXchange/HipChat-Alerting-Extension/idi-p/7640) community.
 
 ##Support
 

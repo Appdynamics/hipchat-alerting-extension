@@ -33,7 +33,7 @@ or Download the HIPCHAT Alerting Extension zip from  http://appsphere.appdynamic
  	</action>
  </custom-actions>``
 
-7. UnComment the appropriate executable tag based on windows or linus/unix machine.
+7. UnComment the appropriate executable tag based on windows or linux/unix machine.
 
 8. Installing Custom Actions:
 

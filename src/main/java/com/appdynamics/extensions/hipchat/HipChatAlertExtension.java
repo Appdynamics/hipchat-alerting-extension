@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -199,7 +198,7 @@ public class HipChatAlertExtension {
 	/**
 	 * Creates the alerting message string from the event object
 	 */
-	private static String createAlertMessage() throws UnsupportedEncodingException {
+	private static String createAlertMessage() {
 		String status = "";
 
 		if ((event instanceof HealthRuleViolationEvent)) {

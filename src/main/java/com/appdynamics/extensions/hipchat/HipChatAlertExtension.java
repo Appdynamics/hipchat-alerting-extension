@@ -208,6 +208,7 @@ public class HipChatAlertExtension {
 			sb.append("Health rule name:").append(healthRuleViolationEvent.getHealthRuleName()).append(", ");
 			sb.append("Affected Entity Type:").append(healthRuleViolationEvent.getAffectedEntityType()).append(", ");
 			sb.append("Affected Entity Name:").append(healthRuleViolationEvent.getAffectedEntityName()).append(", ");
+			sb.append("Summary message:").append(healthRuleViolationEvent.getSummaryMessage()).append(", ");
 			sb.append("URL:").append(event.getDeepLinkUrl()).append(healthRuleViolationEvent.getIncidentID()).append("]");
 		} else {
 			OtherEvent oe = (OtherEvent) event;

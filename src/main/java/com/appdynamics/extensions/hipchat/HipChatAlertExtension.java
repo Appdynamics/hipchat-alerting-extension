@@ -1,17 +1,11 @@
 package com.appdynamics.extensions.hipchat;
 
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
-
+import com.appdynamics.extensions.alerts.customevents.Event;
+import com.appdynamics.extensions.alerts.customevents.EventBuilder;
+import com.appdynamics.extensions.alerts.customevents.HealthRuleViolationEvent;
+import com.appdynamics.extensions.alerts.customevents.OtherEvent;
+import com.google.gson.*;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -22,11 +16,12 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
+import java.io.*;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Properties;
 
 /**
  * @author ashish mehta
@@ -204,16 +199,25 @@ public class HipChatAlertExtension {
 	 * Creates the alerting message string from the event object
 	 */
 	private static String createAlertMessage() {
-		String status = "";
-
+		StringBuilder sb = new StringBuilder();
 		if ((event instanceof HealthRuleViolationEvent)) {
-			HealthRuleViolationEvent hrve = (HealthRuleViolationEvent)event;
-			status = hrve.toString();
+			HealthRuleViolationEvent healthRuleViolationEvent = (HealthRuleViolationEvent) event;
+			sb.append("Health rule violation = [").append("P:").append(event.getPriority()).append(", ");
+			sb.append("Severity:").append(event.getSeverity()).append(", ");
+			sb.append("App Name:").append(event.getAppName()).append(", ");
+			sb.append("Health rule name:").append(healthRuleViolationEvent.getHealthRuleName()).append(", ");
+			sb.append("Affected Entity Type:").append(healthRuleViolationEvent.getAffectedEntityType()).append(", ");
+			sb.append("Affected Entity Name:").append(healthRuleViolationEvent.getAffectedEntityName()).append(", ");
+			sb.append("URL:").append(event.getDeepLinkUrl()).append(healthRuleViolationEvent.getIncidentID()).append("]");
 		} else {
-			OtherEvent oe = (OtherEvent)event;
-			status = oe.toString();
+			OtherEvent oe = (OtherEvent) event;
+			sb.append("Event = [").append("P:").append(oe.getPriority()).append(", ");
+			sb.append("Severity:").append(oe.getSeverity()).append(", ");
+			sb.append("App Name:").append(oe.getAppName()).append(", ");
+			sb.append("Event Name:").append(oe.getEventNotificationName()).append(", ");
+			sb.append("URL:").append(oe.getDeepLinkUrl()).append(oe.getEventNotificationId()).append("]");
 		}
-		return status;
+		return sb.toString();
 	}
 
 
@@ -223,32 +227,7 @@ public class HipChatAlertExtension {
 	 * @param args
 	 */
 	private static void parseEventParams(String[] args) throws Exception {
-		args = stripQuotes(args);
-
-		if (args[(args.length - 1)].startsWith("http")) {
-			OtherEvent oe = new OtherEvent();
-			oe.setAppName(args[0]);
-			oe.setPriority(args[3]);
-			oe.setSeverity(args[4]);
-			oe.setTag(args[5]);
-			oe.setEventName(args[6]);
-			oe.setEventID(args[7]);
-			oe.setDeepLinkUrl(args[(args.length - 1)]);
-			event = oe;
-		} else {
-			HealthRuleViolationEvent hrv = new HealthRuleViolationEvent();
-			hrv.setAppName(args[0]);
-			hrv.setPriority(args[3]);
-			hrv.setSeverity(args[4]);
-			hrv.setTag(args[5]);
-			hrv.setHealthRuleName(args[6]);
-			hrv.setHealthRuleID(args[7]);
-			hrv.setSummaryMessage(args[(args.length - 4)]);
-			hrv.setIncidentID(args[(args.length - 3)]);
-			hrv.setDeepLinkUrl(args[(args.length - 2)]);
-			hrv.setEventType(args[(args.length - 1)]);
-			event = hrv;
-		}
+		event = new EventBuilder().build(args);
 	}
 
 	/**
@@ -313,7 +292,7 @@ public class HipChatAlertExtension {
 	}
 
 	public String sendMessage(Message msg) {
-		logger.debug("Sending the message with object : " + msg+ " to "+hipchat.getHost());
+		logger.debug("Sending the message with object : " + msg + " to " + hipchat.getHost());
 
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
 		nameValuePairs.add(new BasicNameValuePair("auth_token", hipchat.getAuthToken()));
@@ -399,19 +378,6 @@ public class HipChatAlertExtension {
 		}
 
 		return path;
-	}
-
-	private static String[] stripQuotes(String[] args) {
-		StringBuilder sb = new StringBuilder();
-		String[] stripped = new String[args.length];
-		
-		for (int i = 0; i < args.length; i++) {
-			sb.append("args[" + i + "]=" + args[i] + ", ");
-			stripped[i] = args[i].replaceAll("^\"|\"$", "");
-		}
-		
-		logger.debug(sb.toString());
-		return stripped;
 	}
 
 	private String getUrl(String path){

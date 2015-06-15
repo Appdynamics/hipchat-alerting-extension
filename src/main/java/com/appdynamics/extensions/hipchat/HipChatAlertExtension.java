@@ -1,5 +1,6 @@
 package com.appdynamics.extensions.hipchat;
 
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,7 +27,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
-
 
 /**
  * @author ashish mehta
@@ -160,10 +160,15 @@ public class HipChatAlertExtension {
 			String notify = prop.getProperty("notify");
 			if(notify == null || (notify.trim().length() == 0))
 				notify = "true";
+
+			String host = prop.getProperty("host");
 			
 			hipchat = new HipChat();
 			hipchat.setAuthToken(authToken);
 			hipchat.setScheme(scheme);
+			if(host != null && ! host.isEmpty()) {
+				hipchat.setHost(host);
+			}
 
 			Message msg = new Message();
 			msg.setRoomName(roomName);
@@ -308,7 +313,7 @@ public class HipChatAlertExtension {
 	}
 
 	public String sendMessage(Message msg) {
-		logger.debug("Sending the message with object : " + msg);
+		logger.debug("Sending the message with object : " + msg+ " to "+hipchat.getHost());
 
 		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
 		nameValuePairs.add(new BasicNameValuePair("auth_token", hipchat.getAuthToken()));

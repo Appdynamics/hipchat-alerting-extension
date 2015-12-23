@@ -9,7 +9,7 @@ The HipChat alerting extension enables AppDynamics to post custom notifications 
 
 ### Prerequisites
 
-- You have a HipChat Account.
+- You have a HipChat v2 Account. HipChat v1 is not supported.
 - You have a chat room created (and active) to send alert messages to.
 - You have either admin or notifications auth_token authorized to make hipchat API calls.
 
@@ -23,15 +23,16 @@ or Download the HIPCHAT Alerting Extension zip from  http://appsphere.appdynamic
 5. Specify the values the properties in config.properties
 6. In directory = <controller-install-dir>\custom\actions add custom.xml, add below action in xml file(modify if the file already exists, and merge the below action)
 
- ``<custom-actions>
+ ```<custom-actions>
  	<action>
-		<type>hipchat-alert</type>
-       <!-- For windows *.bat -->
- 		<executable>hipchat-alert.bat</executable>
- 		<!-- For Linux/Unix *.sh -->
- 		<!-- executable>hipchat-alert.sh</executable -->
+	   <type>hipchat-alert</type>
+           <!-- For windows *.bat -->
+ 	   <executable>hipchat-alert.bat</executable>
+ 	   <!-- For Linux/Unix *.sh -->
+ 	   <!-- executable>hipchat-alert.sh</executable -->
  	</action>
- </custom-actions>``
+    </custom-actions>
+ ```
 
 7. UnComment the appropriate executable tag based on windows or linux/unix machine.
 

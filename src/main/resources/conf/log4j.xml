@@ -16,8 +16,8 @@
     </layout> 
   </appender> 
   
-  <logger name="com.appdynamics.extensions.hipchat.HipChatAlertExtension" additivity="false">
-	<level value="debug"/>
+  <logger name="com.appdynamics.extensions.hipchat" additivity="false">
+	<level value="info"/>
 	<appender-ref ref="RollingFileAppender"/>
 	<appender-ref ref="ConsoleAppender"/>
   </logger>

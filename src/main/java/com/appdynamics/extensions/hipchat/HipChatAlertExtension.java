@@ -81,7 +81,7 @@ public class HipChatAlertExtension {
         InputStream input = null;
 
         try {
-            input = new FileInputStream("/Users/Muddam/AppDynamics/Code/extensions/hipchat-alerting-extension/src/main/resources/conf/config.properties");
+            input = new FileInputStream("config.properties");
             prop.load(input);
 
             String authToken = prop.getProperty("authToken");

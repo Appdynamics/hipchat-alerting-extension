@@ -17,7 +17,7 @@ The HipChat alerting extension enables AppDynamics to post custom notifications 
 
 1. Run "mvn clean install"
 2. Download and unzip the file 'target/hipchat-alert.zip'
-or Download the HIPCHAT Alerting Extension zip from  http://appsphere.appdynamics.com/t5/AppDynamics-eXchange/HipChat-Alerting-Extension/idi-p/7640
+or Download the HIPCHAT Alerting Extension zip from  https://www.appdynamics.com/community/exchange/extension/hipchat-alerting-extension/
 3. Create a folder/directory as <controller-install-path>custom\actions\hipchat-alert
 4. Unzip the contents from zip (from step 2) in the above directory. You will see a prompt if you already have a custom.xml file in the /custom/actions/ directory. Don't let the unzip process overwrite it. Instead, merge the contents.
 5. Specify the values the properties in config.properties
@@ -46,7 +46,7 @@ Now you are ready to use this extension as a custom action. In the AppDynamics U
 
 ##Contributing
 
-Find out more in the [AppSphere](http://appsphere.appdynamics.com/t5/AppDynamics-eXchange/HipChat-Alerting-Extension/idi-p/7640) community.
+Find out more in the [AppSphere](https://www.appdynamics.com/community/exchange/extension/hipchat-alerting-extension/) community.
 
 ##Support
 

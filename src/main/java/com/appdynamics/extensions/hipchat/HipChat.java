@@ -5,12 +5,12 @@ package com.appdynamics.extensions.hipchat;
  *
  */
 public class HipChat {
-	
-	private final String version = "v1";    
+
+	private String version = "v2";
 	private String scheme = "https";
 	private String host = "api.hipchat.com";
 	private String authToken;
-	
+
 	public String getScheme() {
 		return scheme;
 	}

@@ -5,32 +5,18 @@ package com.appdynamics.extensions.hipchat;
  *
  */
 public class Message {
-	
+
 	private String roomName;
-	private Integer roomId = -1;
-	private String from;
 	private String message;
 	private String messageFormat;
 	private boolean notify;
 	private String color;
-	
+
 	public String getRoomName() {
 		return roomName;
 	}
 	public void setRoomName(String roomName) {
 		this.roomName = roomName;
-	}
-	public Integer getRoomId() {
-		return roomId;
-	}
-	public void setRoomId(Integer roomId) {
-		this.roomId = roomId;
-	}
-	public String getFrom() {
-		return from;
-	}
-	public void setFrom(String from) {
-		this.from = from;
 	}
 	public String getMessage() {
 		return message;
@@ -56,18 +42,16 @@ public class Message {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	
+
 	@Override
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		sb.append("Message=[").append("roomName:").append(this.roomName).append("&");
-		sb.append("Room Id:").append(this.roomId).append("&");
-		sb.append("From:").append(this.from).append("&");
 		sb.append("MessageFormat:").append(this.messageFormat).append("&");
 		sb.append("Color:").append(this.color).append("&");
 		sb.append("Notify:").append(this.notify).append("]");
-		
+
 		return sb.toString();
 	}
-	
+
 }

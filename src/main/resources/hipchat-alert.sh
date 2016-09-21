@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/sh
 
 ###
 # Copyright 2013 AppDynamics

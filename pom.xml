@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>com.appdynamics</groupId>
 			<artifactId>appd-exts-commons</artifactId>
-			<version>1.2.3</version>
+			<version>1.5.0</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -70,7 +70,11 @@
 										file="${project.build.directory}/HipChatAlert-${project.version}.jar"
 										tofile="${target.dir}/HipChatAlert.jar" />
 
-								<zip destfile="${target.dir}.zip">
+								<copy todir="${target.dir}">
+									<fileset dir="${project.basedir}" includes="LICENSE.txt"/>
+								</copy>
+
+								<zip destfile="${target.dir}-${project.version}.zip">
 									<zipfileset dir="${target.dir}" filemode="755"
 												prefix="hipchat-alert/" />
 								</zip>

@@ -1,5 +1,5 @@
-hipchat-alerting-extension
-==========================
+AppDynamics Alerting Extension for use with Hipchat
+====================================================
 
 This alerting extension is only meant for on-premise controllers.
 

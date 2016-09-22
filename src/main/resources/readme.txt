@@ -1,4 +1,4 @@
-AppDynamics HipChat Alerting Extension
+AppDynamics Alerting Extension for use with Hipchat
 
 - This extension provides a way to send an alert message to a given HipChat Room.
 
@@ -20,7 +20,7 @@ The certificate can be downloaded from browser tools by browsing https://api.hip
 Steps:
 ------
 
-1) Download the HIPCHAT Alerting Extension zip from http://appsphere.appdynamics.com
+1) Download the HIPCHAT Alerting Extension zip from https://www.appdynamics.com/community/exchange/extension/hipchat-alerting-extension/
 2) Create a folder/directory as <controller-install-path>custom\actions\hipchat-alert
 3) Unzip the contents from zip (from step 1) in the above directory
 4) Modify the properties in config.properties

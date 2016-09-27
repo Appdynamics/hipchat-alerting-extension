@@ -44,6 +44,16 @@ or Download the HIPCHAT Alerting Extension zip from  https://www.appdynamics.com
 
 Now you are ready to use this extension as a custom action. In the AppDynamics UI, go to Alert & Respond -> Actions. Click Create Action. Select Custom Action and click OK. In the drop-down menu you can find the action called 'hipchat-alert'.
 
+##Screenshots
+###Alert
+![](https://raw.github.com/Appdynamics/hipchat-alerting-extension/master/Alert.png)
+
+###Policy
+![](https://raw.github.com/Appdynamics/hipchat-alerting-extension/master/Policy.png)
+
+###Message in HipChat
+![](https://raw.github.com/Appdynamics/hipchat-alerting-extension/master/Hipchat_Message.png)
+
 ##Contributing
 
 Find out more in the [AppSphere](https://www.appdynamics.com/community/exchange/extension/hipchat-alerting-extension/) community.

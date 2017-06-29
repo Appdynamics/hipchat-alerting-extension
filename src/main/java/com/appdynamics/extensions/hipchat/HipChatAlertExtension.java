@@ -133,6 +133,16 @@ public class HipChatAlertExtension {
                 hipchat.setHost(host);
             }
 
+
+            String proxyUri = prop.getProperty("proxyUri");
+            String proxyUser = prop.getProperty("proxyUser");
+            String proxyPassword = prop.getProperty("proxyPassword");
+
+            hipchat.setProxyUri(proxyUri);
+            hipchat.setProxyUser(proxyUser);
+            hipchat.setProxyPassword(proxyPassword);
+
+
             Message msg = new Message();
             msg.setRoomName(roomName);
             msg.setMessageFormat(MessageFormat.text.toString());

@@ -25,6 +25,9 @@ public class HipChat {
     private String scheme = "https";
     private String host = "api.hipchat.com";
     private String authToken;
+    private String proxyUri;
+    private String proxyUser;
+    private String proxyPassword;
 
     public String getScheme() {
         return scheme;
@@ -54,4 +57,27 @@ public class HipChat {
         return version;
     }
 
+    public String getProxyUri() {
+        return proxyUri;
+    }
+
+    public void setProxyUri(String proxyUri) {
+        this.proxyUri = proxyUri;
+    }
+
+    public String getProxyUser() {
+        return proxyUser;
+    }
+
+    public void setProxyUser(String proxyUser) {
+        this.proxyUser = proxyUser;
+    }
+
+    public String getProxyPassword() {
+        return proxyPassword;
+    }
+
+    public void setProxyPassword(String proxyPassword) {
+        this.proxyPassword = proxyPassword;
+    }
 }

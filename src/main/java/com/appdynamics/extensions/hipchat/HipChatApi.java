@@ -151,6 +151,12 @@ public abstract class HipChatApi {
 
         list.add(server);
 
+        HashMap<String, String> proxyProps = new HashMap<String, String>();
+        map.put("proxy", proxyProps);
+        proxyProps.put("uri", hipchatConfigObj.getProxyUri());
+        proxyProps.put("username", hipchatConfigObj.getProxyUser());
+        proxyProps.put("password", hipchatConfigObj.getProxyPassword());
+
         return map;
     }
 

@@ -73,7 +73,7 @@ public class HipChatAlertExtension {
                     alertMsg = createAlertMessage();
                     logger.debug("Computed alerting Message as = " + alertMsg);
                 } catch (Exception exp) {
-                    logger.error("Failed to parse arguments, exiting the program, ex: " + exp);
+                    logger.error("Failed to parse arguments, exiting the program, ex: ", exp);
                     return;
                 }
 

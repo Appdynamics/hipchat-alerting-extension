@@ -181,13 +181,13 @@ public abstract class HipChatApi {
 
             return successResponse;
         } catch (MalformedURLException ex) {
-            logger.error("MalformedURLException occured : " + ex);
+            logger.error("MalformedURLException occured", ex);
             throw new HipChatApiException("MalformedURLException occurred", ex);
         } catch (IOException ex) {
-            logger.error("IOException occured : " + ex);
+            logger.error("IOException occured", ex);
             throw new HipChatApiException("IOException occurred", ex);
         } catch (Exception ex) {
-            logger.error("Exception occured : " + ex);
+            logger.error("Exception occured", ex);
             throw new HipChatApiException("Exception occurred", ex);
         } finally {
             if (httpClient != null) {
